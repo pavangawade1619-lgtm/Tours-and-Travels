@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore India's most beautiful destinations with Bharat Trails. Discover beaches, mountains, heritage and unforgettable journeys.">
+  <title>Bharat Trails | Discover Incredible India</title>
+
+  <!-- Tailwind CSS browser CDN: suitable for learning and prototyping -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="bg-[#faf8f3] text-[#193b32]">
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <nav class="container mx-auto flex items-center justify-between px-5 py-5">
+      <a href="#home" class="brand">
+        <span class="brand-icon">✳</span>
+        Bharat<span>Trails.</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="mobile-contact">Plan a trip ↗</a>
+      </div>
+
+      <a href="#contact" class="nav-cta">Plan a trip ↗</a>
+
+      <button id="menuToggle" class="menu-toggle"
+        aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-image"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content container mx-auto px-5">
+        <div class="hero-tag reveal">
+          <span class="pulse-dot"></span>
+          YOUR JOURNEY, YOUR INDIA
+        </div>
+
+        <h1 class="hero-title reveal">
+          Find yourself<br>
+          <span>somewhere</span><br>
+          incredible.
+        </h1>
+
+        <p class="hero-description reveal">
+          From Himalayan sunrises to golden beaches,
+          discover the India that stays with you forever.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#destinations" class="btn-primary">
+            Explore destinations <span>↗</span>
+          </a>
+          <a href="#about" class="btn-outline">Our story ↓</a>
+        </div>
+
+        <div class="hero-bottom">
+          <div>
+            <strong>28+</strong>
+            <span>States to explore</span>
+          </div>
+          <div>
+            <strong>∞</strong>
+            <span>Stories to collect</span>
+          </div>
+          <a href="#destinations" class="scroll-cue">
+            SCROLL TO EXPLORE <span>↓</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-index">01 / INCREDIBLE INDIA</div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro-section section-pad" id="about">
+      <div class="container mx-auto px-5 grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <span class="eyebrow">NOT JUST A DESTINATION</span>
+          <h2 class="section-title">
+            Travel beyond<br>the <em>ordinary.</em>
+          </h2>
+        </div>
+
+        <div class="reveal intro-copy">
+          <p>
+            India isn't just a place on the map. It's the sound of temple
+            bells, the taste of street food, the calm of mountain mornings,
+            and the warmth of people you'll never forget.
+          </p>
+          <p>
+            We help you find journeys that feel personal, meaningful,
+            and wonderfully unforgettable.
+          </p>
+          <a href="#experiences" class="text-link">Discover our experiences ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations-section section-pad" id="destinations">
+      <div class="container mx-auto px-5">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">HANDPICKED FOR YOU</span>
+            <h2 class="section-title">India, in all its <em>glory.</em></h2>
+          </div>
+          <p>Different places. Different stories.<br>One incredible country.</p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="filter-bar reveal" id="filterBar">
+          <button class="filter-btn active" data-filter="all">All places</button>
+          <button class="filter-btn" data-filter="mountains">Mountains</button>
+          <button class="filter-btn" data-filter="beaches">Beaches</button>
+          <button class="filter-btn" data-filter="heritage">Heritage</button>
+          <button class="filter-btn" data-filter="nature">Nature</button>
+          <button class="filter-btn" data-filter="spiritual">Spiritual</button>
+        </div>
+
+        <!-- JavaScript inserts destination cards here -->
+        <div id="destinationGrid"
+          class="destination-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+
+        <p id="noResults" class="hidden text-center py-12">
+          No destinations found in this category.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience categories -->
+    <section class="experience-section section-pad" id="experiences">
+      <div class="container mx-auto px-5">
+        <div class="text-center reveal">
+          <span class="eyebrow">TRAVEL YOUR WAY</span>
+          <h2 class="section-title">What moves your <em>soul?</em></h2>
+          <p class="muted-copy">
+            Pick your kind of adventure. We'll help you plan the rest.
+          </p>
+        </div>
+
+        <div class="experience-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <a href="#destinations" class="experience-card reveal"
+             data-experience="mountains">
+            <span class="experience-icon">⛰</span>
+            <h3>Mountain Escapes</h3>
+            <p>Fresh air, quiet trails and endless horizons.</p>
+            <span class="experience-arrow">↗</span>
+          </a>
+
+          <a href="#destinations" class="experience-card reveal"
+             data-experience="beaches">
+            <span class="experience-icon">☼</span>
+            <h3>Beach Life</h3>
+            <p>Golden sunsets and the rhythm of the sea.</p>
+            <span class="experience-arrow">↗</span>
+          </a>
+
+          <a href="#destinations" class="experience-card reveal"
+             data-experience="heritage">
+            <span class="experience-icon">⌂</span>
+            <h3>Royal Heritage</h3>
+            <p>Palaces, forts and stories from another time.</p>
+            <span class="experience-arrow">↗</span>
+          </a>
+
+          <a href="#destinations" class="experience-card reveal"
+             data-experience="nature">
+            <span class="experience-icon">❋</span>
+            <h3>Into the Wild</h3>
+            <p>Green valleys, forests and slower mornings.</p>
+            <span class="experience-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="contact-section section-pad" id="contact">
+      <div class="container mx-auto px-5">
+        <div class="contact-panel reveal">
+          <span class="eyebrow light-eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+          <h2 class="contact-title">
+            The world is waiting.<br>
+            <em>Let's find your India.</em>
+          </h2>
+          <p>Tell us what you dream of. Let's turn it into a journey.</p>
+
+          <form id="travelForm" class="travel-form">
+            <div class="form-field">
+              <label for="travellerName">Your name</label>
+              <input id="travellerName" name="name" type="text"
+                placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="travellerEmail">Email address</label>
+              <input id="travellerEmail" name="email" type="email"
+                placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-field">
+              <label for="destinationSelect">Dream destination</label>
+              <select id="destinationSelect" name="destination" required>
+                <option value="">Choose a destination</option>
+                <option>Goa</option>
+                <option>Kashmir</option>
+                <option>Manali</option>
+                <option>Ladakh</option>
+                <option>Jaipur</option>
+                <option>Kerala</option>
+                <option>Agra</option>
+                <option>Varanasi</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="travelDate">Preferred travel date</label>
+              <input id="travelDate" name="date" type="date" required>
+            </div>
+
+            <div class="form-field">
+              <label for="travellerCount">Number of travellers</label>
+              <select id="travellerCount" name="travellers">
+                <option value="1">1 traveller</option>
+                <option value="2" selected>2 travellers</option>
+                <option value="3">3 travellers</option>
+                <option value="4">4 travellers</option>
+                <option value="5+">5 or more</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit">
+              Send trip inquiry <span>↗</span>
+            </button>
+          </form>
+
+          <p id="formMessage" class="form-message" role="status"
+             aria-live="polite"></p>
+          <p class="form-note">
+            Demo form only. Connect an email service or backend to receive inquiries.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto px-5">
+      <div class="footer-main">
+        <a href="#home" class="brand footer-brand">
+          <span class="brand-icon">✳</span>
+          Bharat<span>Trails.</span>
+        </a>
+        <p>Collect moments, not just miles.</p>
+        <a href="#home" class="back-top">BACK TO TOP ↑</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="currentYear"></span> Bharat Trails</span>
+        <span>Made for the love of India 🇮🇳</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
